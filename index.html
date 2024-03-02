@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
-<body class="font-inter">
-    <header>
+<body class="font-inter px-1">
+    <header class="container mx-auto mt-6">
         <nav>
-            <div class="navbar bg-base-100">
+            <div class="navbar bg-base-100 px-0">
                 <div class="navbar-start">
                     <div class="dropdown">
                         <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -26,14 +26,15 @@
                             </svg>
                         </div>
                         <ul tabindex="0"
-                            class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                            class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 font-mulish">
                             <li><a>Home</a></li>
                             <li><a>Create</a></li>
                             <li><a>Members</a></li>
                             <li><a>Blog</a></li>
                         </ul>
                     </div>
-                    <h2 class="text-2xl md:text-4xl font-black font-mulish">Pixel<span class="text-[#797DFC]">P</span>arley</h2>
+                    <h2 class="text-2xl md:text-4xl font-black font-mulish">Pixel<span
+                            class="text-[#797DFC]">P</span>arley</h2>
                 </div>
                 <div class="navbar-end space-x-2">
                     <div class="space-x-2 hidden md:flex">
@@ -50,10 +51,53 @@
                             <img src="images/flag.png" alt="">
                         </button>
                     </div>
-                    <button class="btn text-base md:text-xl text-white font-bold rounded-full bg-[#797DFC] min-w-24 md:min-w-32">Sign In</button>
+                    <button
+                        class="btn text-base md:text-xl text-white font-bold font-mulish rounded-full bg-[#797DFC] min-w-24 md:min-w-32">Sign
+                        In</button>
                 </div>
             </div>
         </nav>
+        <!-- banner section -->
+        <section class="mt-12 bg-[#12132D] rounded-3xl">
+            <div
+                class="flex flex-col lg:flex-row justify-between items-center bg-[url('images/bgbanner.png')] bg-center bg-cover min-h-[550px] py-10 px-16 gap-6">
+                <div class="space-y-4 md:space-y-6 lg:space-y-8 flex-1">
+                    <h1
+                        class="text-3xl md:text-4xl xl:text-5xl text-white font-molish font-extrabold text-center lg:text-left">
+                        Welcome to <span class="text-[#797DFC]">PixelParley</span>, <br>Where Pixels Meet Discourse
+                    </h1>
+                    <p
+                        class="text-base md:text-lg lg:text-xl text-center lg:text-left text-white font-mulish font-medium">
+                        Share your favorite opinion to the worldwide community
+                    </p>
+                    <div>
+                        <label class="input input-bordered flex items-center gap-2 rounded-full pr-0 max-w-[510px]">
+                            <input type="text" class="grow" placeholder="Search here anything" />
+                            <button
+                                class="btn text-base md:text-xl text-white font-bold font-mulish rounded-full bg-[#797DFC] min-w-24 md:min-w-32">Search</button>
+                        </label>
+                    </div>
+                </div>
+                <div class="bg-white font-mulish rounded-3xl p-6 space-y-4 w-full lg:w-auto">
+                    <h5 class="flex justify-between items-center text-lg lg:text-2xl font-medium gap-12">
+                        <span>Registered Users</span>
+                        <span>01</span>
+                    </h5>
+                    <h5 class="flex justify-between text-lg lg:text-2xl font-medium gap-12">
+                        <span>Forum</span>
+                        <span>05</span>
+                    </h5>
+                    <h5 class="flex justify-between text-lg lg:text-2xl font-medium gap-12">
+                        <span>Topics</span>
+                        <span>01</span>
+                    </h5>
+                    <h5 class="flex justify-between text-lg lg:text-2xl font-medium gap-12">
+                        <span>Replies</span>
+                        <span>01</span>
+                    </h5>
+                </div>
+            </div>
+        </section>
     </header>
     <main>
 
