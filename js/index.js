@@ -10,9 +10,11 @@ const loadAllPosts = async () => {
         }
         else {
             activeStatus = 'offline';
+            // bgColor = 'bg-[#797DFC1A]';
+            // borderColor = 'border-[#797DFC]'
         }
         const div = document.createElement('div');
-        div.classList = `flex flex-col md:flex-row gap-4 bg-[#797DFC1A] p-6 md:p-8 rounded-3xl border border-[#797DFC]`;
+        div.classList = `flex flex-col md:flex-row gap-4 bg-[#F3F3F5] p-6 md:p-8 rounded-3xl border`;
         div.innerHTML = `
         <div class="avatar active-status ${activeStatus} w-24 h-24">
             <div class="w-24 h-24 rounded-full">
@@ -47,6 +49,14 @@ const loadAllPosts = async () => {
         </div>
         `;
         discussCards.appendChild(div);
+        div.addEventListener('mouseenter', () => {
+            div.style.backgroundColor = '#797DFC1A';
+            div.style.borderColor = '#797DFC';
+        });
+        div.addEventListener('mouseleave', () => {
+            div.style.backgroundColor = '';
+            div.style.borderColor = '';
+        });
         console.log(post);
     });
 };
