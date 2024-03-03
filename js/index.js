@@ -1,3 +1,4 @@
+// handle all post section
 const discussCards = document.getElementById('discuss-cards');
 const loadAllPosts = async () => {
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
@@ -57,7 +58,7 @@ const loadAllPosts = async () => {
             div.style.backgroundColor = '';
             div.style.borderColor = '';
         });
-        console.log(post);
+        // console.log(post);
     });
 };
 
@@ -80,5 +81,45 @@ const handleMarkAsRead = (postTitle, viewCount) => {
     count++
     readCount.innerText = count;
 };
+
+// handle latest post section
+const latestPostContainer = document.getElementById('latest-post-container');
+const loadLatestPosts = async () => {
+    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
+    const data = await res.json();
+    data.forEach(latestPost => {
+        const div = document.createElement('div');
+        div.classList = `card border-2 border-gray-100`;
+        div.innerHTML = `
+        <div class="p-6">
+            <figure class="bg-[#12132D] rounded-xl">
+                <img src="${latestPost.cover_image}" alt="" class="rounded-xl" />
+            </figure>
+        </div>
+        <div class="card-body p-6">
+            <p class="flex items-center gap-2">
+                <span><img src="images/date.png" alt=""></span>
+                <span class="font-mulish text-gray-500">${latestPost?.author?.posted_date ?? 'No publish date'}</span>
+            </p>
+            <h2 class="text-lg font-mulish font-extrabold">${latestPost?.title}</h2>
+            <p class="font-mulish text-gray-500">${latestPost.description}</p>
+            <div class="flex gap-3 mt-3">
+                <div class="avatar">
+                    <div class="w-16 h-16 rounded-full">
+                        <img src="${latestPost.profile_image}" />
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold font-mulish">${latestPost.author.name}</h4>
+                    <p class="font-mulish text-gray-500">${latestPost?.author?.designation ?? 'Unknown'}</p>
+                </div>
+            </div>
+        </div>
+        `;
+        latestPostContainer.appendChild(div);
+        console.log(latestPost);
+    });
+};
+loadLatestPosts();
 
 loadAllPosts()
