@@ -1,18 +1,18 @@
 // handle all post section
 const discussCards = document.getElementById('discuss-cards');
-const loadAllPosts = async () => {
-    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
+const loadAllPosts = async (postId) => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/${postId}`);
     const data = await res.json();
     const posts = data.posts;
     posts.forEach(post => {
+        const { title, comment_count } = post;
+        // console.log(title, comment_count);
         let activeStatus = '';
         if (post.isActive) {
             activeStatus = 'online';
         }
         else {
             activeStatus = 'offline';
-            // bgColor = 'bg-[#797DFC1A]';
-            // borderColor = 'border-[#797DFC]'
         }
         const div = document.createElement('div');
         div.classList = `flex flex-col md:flex-row gap-4 bg-[#F3F3F5] p-6 md:p-8 rounded-3xl border`;
@@ -43,7 +43,7 @@ const loadAllPosts = async () => {
                         <span><span>${post.posted_time}</span> min</span>
                     </h5>
                 </div>
-                <button onclick="handleMarkAsRead('${post.title}', '${post.view_count}')" class="btn btn-circle btn-ghost">
+                <button class="mark-as-read-btn btn btn-circle btn-ghost">
                     <img src="images/email.png" alt="">
                 </button>
             </div>
@@ -59,6 +59,16 @@ const loadAllPosts = async () => {
             div.style.borderColor = '';
         });
         // console.log(post);
+
+    });
+    // mark as read btn click event
+    const markAsReadBtn = document.querySelectorAll('.mark-as-read-btn');
+    markAsReadBtn.forEach(markBtn => {
+        markBtn.addEventListener('click', () => {
+            const postTitle = markBtn.parentNode.parentNode.childNodes[1].childNodes[3].innerText;
+            const viewCount = markBtn.parentNode.childNodes[1].childNodes[3].childNodes[3].innerText;
+            handleMarkAsRead(postTitle, viewCount);
+        });
     });
 };
 
@@ -67,7 +77,6 @@ const markAsRead = document.getElementById('mark-as-read');
 const readCount = document.getElementById('read-count');
 let count = 0;
 const handleMarkAsRead = (postTitle, viewCount) => {
-    console.log(postTitle, viewCount);
     const div = document.createElement('div');
     div.classList = `flex gap-2 justify-between items-center bg-white rounded-2xl p-4`;
     div.innerHTML = `
@@ -117,9 +126,9 @@ const loadLatestPosts = async () => {
         </div>
         `;
         latestPostContainer.appendChild(div);
-        console.log(latestPost);
+        // console.log(latestPost);
     });
 };
 loadLatestPosts();
 
-loadAllPosts()
+loadAllPosts('posts');
