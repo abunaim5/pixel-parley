@@ -42,7 +42,7 @@ const loadAllPosts = async () => {
                         <span><span>${post.posted_time}</span> min</span>
                     </h5>
                 </div>
-                <button class="btn btn-circle btn-ghost">
+                <button onclick="handleMarkAsRead('${post.title}', '${post.view_count}')" class="btn btn-circle btn-ghost">
                     <img src="images/email.png" alt="">
                 </button>
             </div>
@@ -59,6 +59,26 @@ const loadAllPosts = async () => {
         });
         console.log(post);
     });
+};
+
+// handle mark as read section
+const markAsRead = document.getElementById('mark-as-read');
+const readCount = document.getElementById('read-count');
+let count = 0;
+const handleMarkAsRead = (postTitle, viewCount) => {
+    console.log(postTitle, viewCount);
+    const div = document.createElement('div');
+    div.classList = `flex gap-2 justify-between items-center bg-white rounded-2xl p-4`;
+    div.innerHTML = `
+    <h4 class="font-semibold font-mulish">${postTitle}</h4>
+    <div class="flex justify-end gap-2 items-center w-[50%]">
+        <p><img src="images/eye.png" alt=""></p>
+        <p class="text-gray-500">${viewCount}</p>
+    </div>
+    `;
+    markAsRead.appendChild(div);
+    count++
+    readCount.innerText = count;
 };
 
 loadAllPosts()
