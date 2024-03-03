@@ -1,12 +1,11 @@
 // handle all post section
 const discussCards = document.getElementById('discuss-cards');
-const loadAllPosts = async (postId) => {
-    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/${postId}`);
+const loadAllPosts = async (postCategory) => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${postCategory}`);
     const data = await res.json();
     const posts = data.posts;
+    discussCards.textContent = '';
     posts.forEach(post => {
-        const { title, comment_count } = post;
-        // console.log(title, comment_count);
         let activeStatus = '';
         if (post.isActive) {
             activeStatus = 'online';
@@ -61,6 +60,7 @@ const loadAllPosts = async (postId) => {
         // console.log(post);
 
     });
+
     // mark as read btn click event
     const markAsReadBtn = document.querySelectorAll('.mark-as-read-btn');
     markAsReadBtn.forEach(markBtn => {
@@ -70,6 +70,13 @@ const loadAllPosts = async (postId) => {
             handleMarkAsRead(postTitle, viewCount);
         });
     });
+};
+
+// handle search by category
+const searchByCategory = () => {
+    const searchInput = document.getElementById('search-input');
+    const searchInputText = searchInput.value;
+    loadAllPosts(searchInputText);
 };
 
 // handle mark as read section
@@ -96,6 +103,7 @@ const latestPostContainer = document.getElementById('latest-post-container');
 const loadLatestPosts = async () => {
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
     const data = await res.json();
+    latestPostContainer.textContent = ''
     data.forEach(latestPost => {
         const div = document.createElement('div');
         div.classList = `card border-2 border-gray-100`;
@@ -131,4 +139,4 @@ const loadLatestPosts = async () => {
 };
 loadLatestPosts();
 
-loadAllPosts('posts');
+loadAllPosts('');
