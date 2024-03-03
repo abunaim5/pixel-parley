@@ -8,3 +8,7 @@
 .font-inter {
     font-family: "Inter", sans-serif;
 }
+
+.avatar.offline::before {
+    background-color: red;
+}

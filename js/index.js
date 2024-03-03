@@ -1,6 +1,9 @@
 // handle all post section
 const discussCards = document.getElementById('discuss-cards');
+const discussLoadingBar = document.getElementById('discuss-loading-bar');
+discussLoadingBar.classList.remove('hidden');
 const loadAllPosts = async (postCategory) => {
+    // discussLoadingBar.classList.remove('hidden');
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${postCategory}`);
     const data = await res.json();
     const posts = data.posts;
@@ -58,8 +61,8 @@ const loadAllPosts = async (postCategory) => {
             div.style.borderColor = '';
         });
         // console.log(post);
-
     });
+    discussLoadingBar.classList.add('hidden');
 
     // mark as read btn click event
     const markAsReadBtn = document.querySelectorAll('.mark-as-read-btn');
@@ -76,7 +79,10 @@ const loadAllPosts = async (postCategory) => {
 const searchByCategory = () => {
     const searchInput = document.getElementById('search-input');
     const searchInputText = searchInput.value;
-    loadAllPosts(searchInputText);
+    discussLoadingBar.classList.remove('hidden');
+    setTimeout(() => {
+        loadAllPosts(searchInputText);
+    }, 2000);
 };
 
 // handle mark as read section
@@ -100,16 +106,18 @@ const handleMarkAsRead = (postTitle, viewCount) => {
 
 // handle latest post section
 const latestPostContainer = document.getElementById('latest-post-container');
+const latestLoadingBar = document.getElementById('latest-loading-bar');
 const loadLatestPosts = async () => {
+    latestLoadingBar.classList.remove('hidden');
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
     const data = await res.json();
-    latestPostContainer.textContent = ''
+    latestPostContainer.textContent = '';
     data.forEach(latestPost => {
         const div = document.createElement('div');
         div.classList = `card border-2 border-gray-100`;
         div.innerHTML = `
         <div class="p-6">
-            <figure class="bg-[#12132D] rounded-xl">
+            <figure class="rounded-xl">
                 <img src="${latestPost.cover_image}" alt="" class="rounded-xl" />
             </figure>
         </div>
@@ -136,7 +144,10 @@ const loadLatestPosts = async () => {
         latestPostContainer.appendChild(div);
         // console.log(latestPost);
     });
+    latestLoadingBar.classList.add('hidden');
 };
-loadLatestPosts();
 
-loadAllPosts('');
+setTimeout(() => {
+    loadLatestPosts();
+    loadAllPosts('');
+},2000);

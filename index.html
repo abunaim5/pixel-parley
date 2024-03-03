@@ -81,7 +81,8 @@
                     <div>
                         <label class="input input-bordered flex items-center gap-2 rounded-full pr-0 max-w-[510px]">
                             <input id="search-input" type="text" class="grow" placeholder="Search here anything" />
-                            <button onclick="searchByCategory()" class="btn text-base md:text-xl text-white font-bold font-mulish rounded-full bg-[#797DFC] min-w-24 md:min-w-32 ">Search</button>
+                            <button onclick="searchByCategory()"
+                                class="btn text-base md:text-xl text-white font-bold font-mulish rounded-full bg-[#797DFC] min-w-24 md:min-w-32 ">Search</button>
                         </label>
                     </div>
                 </div>
@@ -117,10 +118,14 @@
                         class="hidden lg:flex justify-center">From the latest in tech and digital art to gaming secrets
                         and nostalgic trips down memory lane, this is where our community comes alive.</span></p>
             </div>
+            <!-- loading bars -->
+            <div id="discuss-loading-bar" class="text-center">
+                <span class="loading loading-bars loading-lg"></span>
+            </div>
             <!-- discuss cards section -->
             <div class="flex justify-between flex-col lg:flex-row gap-6">
                 <div id="discuss-cards" class="w-full space-y-6">
-                    <div
+                    <!-- <div
                         class="flex flex-col md:flex-row gap-4 bg-[#797DFC1A] p-6 md:p-8 rounded-3xl border border-[#797DFC]">
                         <div class="avatar online w-24 h-24">
                             <div class="w-24 h-24 rounded-full">
@@ -153,7 +158,7 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- title section -->
                 <div class="bg-[#F3F3F5] p-6 rounded-3xl w-full lg:w-[55%]">
@@ -164,14 +169,8 @@
                             <p class="text-gray-500">Mark as read (<span id="read-count">0</span>)</p>
                         </div>
                     </div>
+                    <!-- mark as read cards -->
                     <div id="mark-as-read" class="mt-4 space-y-4">
-                        <div class="flex gap-2 justify-between items-center bg-white rounded-2xl p-4">
-                            <h4 class="font-semibold font-mulish">10 Kids Unaware of Their Halloween Costume</h4>
-                            <div class="flex justify-end gap-2 items-center w-[50%]">
-                                <p><img src="images/eye.png" alt=""></p>
-                                <p class="text-gray-500">1,568</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -202,9 +201,13 @@
                     our community, featuring the newest insights, updates, and discoveries across all our forum topics.
                 </p>
             </div>
+            <!-- loading bars -->
+            <div id="latest-loading-bar" class="text-center">
+                <span class="loading loading-bars loading-lg"></span>
+            </div>
             <!-- latest post cards -->
             <div id="latest-post-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="card border-2 border-gray-100">
+                <!-- <div class="card border-2 border-gray-100">
                     <div class="p-6">
                         <figure class="bg-[#12132D] rounded-xl">
                             <img src="images/joinforum.png" alt="" class="rounded-xl" />
@@ -231,23 +234,23 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
     </main>
     <footer class="bg-[#30325E1A] mt-10 md:mt-20">
         <section class="container mx-auto text-center py-28">
-            <div class="text-center space-y-4 mb-10">
+            <div class="text-center space-y-8 mb-10">
                 <h2 class="text-2xl md:text-4xl font-black font-mulish">Pixel<span class="text-[#797DFC]">P</span>arley
                 </h2>
                 <p class="max-w-[90%] lg:max-w-[75%] mx-auto text-gray-500">Connect, contribute, and uncover new
                     perspectives in an ever-expanding world of pixels. Jump into the discussion and let your voice be
                     heard in our pixel-powered parley!</p>
                 <div class="flex items-center justify-center gap-6">
-                    <img src="images/twitter.png" alt="">
-                    <img src="images/facebook.png" alt="">
-                    <img src="images/insta.png" alt="">
-                    <img src="images/github.png" alt="">
+                    <img class="cursor-pointer" src="images/twitter.png" alt="">
+                    <img class="cursor-pointer" src="images/facebook.png" alt="">
+                    <img class="cursor-pointer" src="images/insta.png" alt="">
+                    <img class="cursor-pointer" src="images/github.png" alt="">
                 </div>
             </div>
             <p class="font-mulish text-gray-500 pt-10 border-t-2 border-gray-300">Copyright&copy;All rights reserved.
