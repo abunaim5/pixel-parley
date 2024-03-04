@@ -1,5 +1,6 @@
 // handle all post section
 const discussCards = document.getElementById('discuss-cards');
+const dataNotFound = document.getElementById('data-not-found');
 const discussLoadingBar = document.getElementById('discuss-loading-bar');
 discussLoadingBar.classList.remove('hidden');
 const loadAllPosts = async (postCategory) => {
@@ -8,6 +9,12 @@ const loadAllPosts = async (postCategory) => {
     const data = await res.json();
     const posts = data.posts;
     discussCards.textContent = '';
+    if (posts.length === 0) {
+        dataNotFound.classList.remove('hidden');
+    }
+    else {
+        dataNotFound.classList.add('hidden');
+    }
     posts.forEach(post => {
         let activeStatus = '';
         if (post.isActive) {
@@ -77,6 +84,7 @@ const loadAllPosts = async (postCategory) => {
 
 // handle search by category
 const searchByCategory = () => {
+    dataNotFound.classList.add('hidden');
     const searchInput = document.getElementById('search-input');
     const searchInputText = searchInput.value;
     discussLoadingBar.classList.remove('hidden');
@@ -150,4 +158,4 @@ const loadLatestPosts = async () => {
 setTimeout(() => {
     loadLatestPosts();
     loadAllPosts('');
-},2000);
+}, 2000);

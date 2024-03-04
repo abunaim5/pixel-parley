@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pixel Parley</title>
+    <link rel="shortcut icon" href="images/speech-bubble.png" type="image/x-icon">
     <!-- tailwind and daisyUI cdn -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,7 +18,7 @@
         <nav>
             <div class="navbar bg-base-100 px-0">
                 <div class="navbar-start gap-3">
-                    <div class="dropdown">
+                    <div class="dropdown lg:hidden">
                         <div tabindex="0" role="button" class="lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
@@ -121,6 +122,10 @@
             <!-- loading bars -->
             <div id="discuss-loading-bar" class="text-center">
                 <span class="loading loading-bars loading-lg"></span>
+            </div>
+            <!-- data not found message -->
+            <div id="data-not-found" class="hidden">
+                <h3 class="text-3xl text-gray-200 font-mulish font-bold text-center">Data Not Found</h3>
             </div>
             <!-- discuss cards section -->
             <div class="flex justify-between flex-col lg:flex-row gap-6">
