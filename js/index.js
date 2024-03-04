@@ -30,8 +30,8 @@ const loadAllPosts = async (postCategory) => {
                 <h4 class="text-xl font-bold font-mulish">${post.title}</h4>
                 <p class="text-gray-500">${post.description}</p>
             </div>
-            <div class="flex justify-between items-center gap-4 pt-4">
-                <div class="flex gap-4 md:gap-6 items-center text-gray-500">
+            <div class="flex justify-between items-center gap-2 md:gap-4 pt-4">
+                <div class="flex gap-3 md:gap-6 items-center text-gray-500">
                     <h5 class="flex gap-2 items-center">
                         <img src="images/comment.png" alt="">
                         <span>${post.comment_count}</span>

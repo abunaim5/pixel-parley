@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
-<body class="font-inter px-1">
-    <header class="container mx-auto mt-6">
+<body class="font-inter">
+    <header class="container mx-auto mt-6 px-1">
         <nav>
             <div class="navbar bg-base-100 px-0">
                 <div class="navbar-start gap-3">
@@ -28,9 +28,9 @@
                         <ul tabindex="0"
                             class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 font-mulish">
                             <li><a>Home</a></li>
-                            <li><a>Create Post</a></li>
+                            <li><a>Create</a></li>
                             <li><a>Members</a></li>
-                            <li><a>Blog</a></li>
+                            <li><a>Blogs</a></li>
                         </ul>
                     </div>
                     <h2 class="text-2xl md:text-4xl font-black font-mulish">Pixel<span
@@ -82,7 +82,7 @@
                         <label class="input input-bordered flex items-center gap-2 rounded-full pr-0 max-w-[510px]">
                             <input id="search-input" type="text" class="grow" placeholder="Search here anything" />
                             <button onclick="searchByCategory()"
-                                class="btn text-base md:text-xl text-white font-bold font-mulish rounded-full bg-[#797DFC] min-w-24 md:min-w-32 ">Search</button>
+                                class="btn text-base md:text-xl text-white font-bold font-mulish rounded-full bg-[#797DFC] min-w-24 md:min-w-32  border-4 hover:bg-[#797DFC]">Search</button>
                         </label>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
             </div>
         </section>
     </header>
-    <main class="container mx-auto mt-10 md:mt-20">
+    <main class="container mx-auto mt-10 md:mt-20 px-1">
         <!-- let's discuss section -->
         <section class="space-y-12">
             <div class="text-center space-y-4">
@@ -125,40 +125,6 @@
             <!-- discuss cards section -->
             <div class="flex justify-between flex-col lg:flex-row gap-6">
                 <div id="discuss-cards" class="w-full space-y-6">
-                    <!-- <div
-                        class="flex flex-col md:flex-row gap-4 bg-[#797DFC1A] p-6 md:p-8 rounded-3xl border border-[#797DFC]">
-                        <div class="avatar online w-24 h-24">
-                            <div class="w-24 h-24 rounded-full">
-                                <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                            </div>
-                        </div>
-                        <div class="space-y-2 divide-y-2 divide-dashed">
-                            <div class="space-y-2 pb-3">
-                                <h5 class="text-sm font-medium flex gap-4"><span>#Music</span><span>Author: John
-                                        Doe</span></h5>
-                                <h4 class="text-xl font-bold font-mulish">10 kids Unaware of Their Halloween Costume
-                                </h4>
-                                <p class="text-gray-500">It's one thing to subject yourself to ha Halloween costume
-                                    mishap because, hey that's
-                                    your prerogative</p>
-                            </div>
-                            <div class="flex justify-between items-center gap-4 pt-4">
-                                <div class="flex gap-4 md:gap-6 items-center text-gray-500">
-                                    <h5 class="flex gap-2 items-center"><img src="images/comment.png" alt="">
-                                        <span>560</span>
-                                    </h5>
-                                    <h5 class="flex gap-2 items-center"><img src="images/eye.png" alt="">
-                                        <span>1,568</span>
-                                    </h5>
-                                    <h5 class="flex gap-2 items-center"><img src="images/watch.png" alt=""> <span>5
-                                            min</span></h5>
-                                </div>
-                                <button class="btn btn-circle btn-ghost">
-                                    <img src="images/email.png" alt="">
-                                </button>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
                 <!-- title section -->
                 <div class="bg-[#F3F3F5] p-6 rounded-3xl w-full lg:w-[55%]">
@@ -180,15 +146,15 @@
             class="flex flex-col md:flex-row justify-between gap-4 items-center bg-[#12132D] rounded-3xl min-h-[400px] mt-10 md:mt-20 py-10 px-6 md:px-8 lg:px-16">
             <div class="space-y-4 md:space-y-6 lg:space-y-8 text-center md:text-left">
                 <h3 class="text-3xl md:text-4xl text-white font-black font-mulish">Join Our Forum</h3>
-                <p class="text-sm md:text-base font-mulish text-gray-400">Share your favorite opinion and win and wp
-                    forum
-                    coffee mug!
-                    Yes, you can run unit tests and view the results directly within the app.</p>
+                <p class="text-sm md:text-base font-mulish text-gray-400">Join Our Forum today and become part of a
+                    vibrant community where ideas flourish and connections are made. Whether you're here to share your
+                    expertise, seek advice, or simply explore topics that intrigue you, you'll find a welcoming space
+                    filled with like-minded individuals.</p>
                 <button
                     class="btn text-xl text-white font-bold font-mulish rounded-full bg-[#797DFC] min-w-56 border-none">Registered
                     Now</button>
             </div>
-            <div>
+            <div class="w-full flex justify-end">
                 <img src="images/joinforum.png" alt="">
             </div>
         </section>
@@ -196,7 +162,7 @@
         <section class="mt-10 md:mt-20 space-y-12">
             <div class="text-center space-y-4">
                 <h2 class="text-2xl md:text-4xl font-mulish font-black">Latest Posts</h2>
-                <p class="max-w-[90%] lg:max-w-[75%] mx-auto text-gray-500">"Stay up-to-date with our Latest Posts
+                <p class="max-w-[90%] lg:max-w-[75%] mx-auto text-gray-500">Stay up-to-date with our Latest Posts
                     section, where the freshest content and discussions are just a click away. Dive into the pulse of
                     our community, featuring the newest insights, updates, and discoveries across all our forum topics.
                 </p>
@@ -207,34 +173,6 @@
             </div>
             <!-- latest post cards -->
             <div id="latest-post-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- <div class="card border-2 border-gray-100">
-                    <div class="p-6">
-                        <figure class="bg-[#12132D] rounded-xl">
-                            <img src="images/joinforum.png" alt="" class="rounded-xl" />
-                        </figure>
-                    </div>
-                    <div class="card-body p-6">
-                        <p class="flex items-center gap-2">
-                            <span><img src="images/date.png" alt=""></span>
-                            <span class="font-mulish text-gray-500">29 January 2024</span>
-                        </p>
-                        <h2 class="text-lg font-mulish font-extrabold">What will a mars habitat force that impact in our
-                            daily life!!!</h2>
-                        <p class="font-mulish text-gray-500">Yes, you can run unit tests and view the results directly
-                            within the app.</p>
-                        <div class="flex gap-3 mt-3">
-                            <div class="avatar">
-                                <div class="w-16 h-16 rounded-full">
-                                    <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-bold font-mulish">Cameron Williamson</h4>
-                                <p class="font-mulish text-gray-500">Unknown</p>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </section>
     </main>
