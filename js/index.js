@@ -24,7 +24,7 @@ const loadAllPosts = async (postCategory) => {
             activeStatus = 'offline';
         }
         const div = document.createElement('div');
-        div.classList = `flex flex-col md:flex-row gap-4 bg-[#F3F3F5] p-6 md:p-8 rounded-3xl border`;
+        div.classList = `flex flex-col md:flex-row gap-4 bg-[#F3F3F5] p-4 md:p-8 rounded-3xl border`;
         div.innerHTML = `
         <div class="avatar active-status ${activeStatus} w-24 h-24">
             <div class="w-24 h-24 rounded-full">
@@ -39,15 +39,15 @@ const loadAllPosts = async (postCategory) => {
             </div>
             <div class="flex justify-between items-center gap-2 md:gap-4 pt-4">
                 <div class="flex gap-3 md:gap-6 items-center text-gray-500">
-                    <h5 class="flex gap-2 items-center">
+                    <h5 class="flex gap-1 md:gap-2 items-center">
                         <img src="images/comment.png" alt="">
                         <span>${post.comment_count}</span>
                     </h5>
-                    <h5 class="flex gap-2 items-center">
+                    <h5 class="flex gap-1 md:gap-2 items-center">
                         <img src="images/eye.png" alt="">
                         <span>${post.view_count}</span>
                     </h5>
-                    <h5 class="flex gap-2 items-center">
+                    <h5 class="flex gap-1 md:gap-2 items-center">
                         <img src="images/watch.png" alt="">
                         <span><span>${post.posted_time}</span> min</span>
                     </h5>
